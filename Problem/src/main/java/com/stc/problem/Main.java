@@ -14,9 +14,9 @@ public class Main {
         char[] fullText = text.toCharArray();
 
         if (!text.contains("(")
-                || (fullText.length >= 1 && fullText.length <= 2000)
+                || !(fullText.length >= 1 && fullText.length <= 2000)
                 || util.validateTextIsLowerCase(fullText)
-                || util.validateBracketsBalanced(text)) {
+                || !Util.validateBracketsBalanced(text)) {
             System.out.println(fullText);
             return;
         }
