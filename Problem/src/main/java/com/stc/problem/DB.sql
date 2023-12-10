@@ -46,3 +46,12 @@ insert into training_details VALUES(12, 3 ,2 ,'2015-08-02');
 insert into training_details VALUES(13, 1 ,1 ,'2015-08-02');
 insert into training_details VALUES(14, 4, 3 ,'2015-08-03');
 
+
+//QUERY
+
+SELECT user_id ,username ,training_id ,training_date ,COUNT(*) as count
+FROM users u
+         INNER JOIN training_details t ON(u.user_id = t.user_id)
+GROUP BY user_id ,username ,training_id ,training_date
+HAVING COUNT(*) > 1
+ORDER BY training_date DESC
